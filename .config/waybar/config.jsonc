@@ -1,0 +1,81 @@
+{
+    "position": "bottom", 
+    "modules-left": ["wlr/workspaces"],
+    "modules-right": ["network", "pulseaudio", "battery", "custom/date", "clock"],
+    // Modules configuration
+	"wlr/workspaces": {
+		"disable-scroll": false,
+		"all-outputs": true,
+		"format": "{icon}",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	 		"4": [],
+	 		"5": [],
+	 		"6": [],
+	 		"7": [],
+	 		"8": [],
+	 		"9": [],
+	 		"10": []
+	},
+         	"format-icons": {
+             		"1": "一",
+             		"2": "二",
+             		"3": "三",
+             		"4": "四",
+             		"5": "五",
+             		"6": "六",
+             		"7": "七",
+             		"8": "八",
+             		"9": "九",
+             		"10": "十"
+         }
+     },
+	"custom/date": {
+    		"format": "<span size='17500' background='#262626' foreground='#909090'></span><span size='13000' foreground='#262626' background='#909090'>  </span><span foreground='#262626' background='#909090'> {} </span><span size='17500' background='#262626' foreground='#909090'></span>",
+		"interval": 3600,
+		"exec": "/home/alix/bin/waybar-date.sh"
+	},
+	"clock": {
+		"format": "<span size='17500' background='#262626' foreground='#909090'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> {:%H:%M} </span><span size='17500' background='#262626' foreground='#909090'></span>",
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	},
+	"battery": {
+        	"states": {
+            		"warning": 30,
+            		"critical": 15,
+        	},
+		    "format": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'> {icon} </span><span foreground='#262626' background='#909090'> {capacity}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		    "format-warning": "<span size='17500' foreground='#ff8585' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'> {icon} </span><span foreground='#262626' background='#909090'> {capacity}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		    "format-critical": "<span size='17500' foreground='#ff8585' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'> {icon} </span><span foreground='#262626' background='#909090'> {capacity}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		    "format-charging": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> {capacity}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		    "format-plugged": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> {capacity}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		    "format-alt": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'> {icon} </span><span foreground='#262626' background='#909090'> {time} </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		    "format-full": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> {capacity}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+        	"format-icons": ["", "", "", "", ""],
+	},
+	"network": {
+        	"format-wifi": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> {essid} </span><span size='17500' foreground='#909090' background='#262626'></span>",
+        	"format-ethernet": " 󰤭 Disconnected",
+        	"format-linked": "{ifname} (No IP) ",
+        	"format-disconnected": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> Disconnected </span><span size='17500' foreground='#909090' background='#262626'></span>",
+		"tooltip-format-wifi": " Signal Strenght: {signalStrength}% ",
+	},
+	"pulseaudio": {
+		"on-click": "pactl set-sink-mute $(pactl list | rg 'Sink #' | sed 's/Sink #//') toggle",
+		"format": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'> {icon} </span><span foreground='#262626' background='#909090'> {volume}% </span><span size='17500' foreground='#909090' background='#262626'></span>",
+        	"format-muted": "<span size='17500' foreground='#909090' background='#262626'></span><span foreground='#262626' background='#909090' size='13000'>  </span><span foreground='#262626' background='#909090'> Muted </span><span size='17500' foreground='#909090' background='#262626'></span>",
+        	"format-icons": {
+            	"headphone": "",
+            	"hands-free": "",
+            	"headset": "",
+            	"phone": "",
+            	"portable": "",
+            	"car": "",
+            	"default": ["", ""]
+        },
+    },
+}
