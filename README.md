@@ -15,3 +15,10 @@ everything was made on my own, waybar was taken from an outside source and edite
 - storage: external 2TB SSD partitioned to only 512gb for linux
 
 # previews
+gif is 60mb due to me wanting best quality, images are below if you want a quick look.
+
+![gif](/imgs/2023-02-04_00-33-49.gif)
+
+![preview1](/imgs/preview1.jpg)
+
+![preview2](/imgs/preview2.jpg)
